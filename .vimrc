@@ -11,7 +11,7 @@ set complete-=t
 set expandtab
 set guioptions=c
 set hidden
-set history=100
+set history=1000
 set incsearch
 set linebreak
 set mouse=a
@@ -22,12 +22,12 @@ set noswapfile
 set nowrap
 set ruler
 set shiftwidth=4
+set showmatch
 set showmode
 set softtabstop=4
 set tabstop=4
-set undolevels=100
-" set relativenumber
-" set undofile
+set undofile
+set undolevels=1000
 
 function! CleverTab() 
     if strpart(getline('.'), col('.') - 2 , 1) =~ '\w' | return "\<C-P>" | else | return "\<Tab>"
