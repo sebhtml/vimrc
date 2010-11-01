@@ -34,12 +34,12 @@ set undolevels=1000
 set visualbell
 
 function! CleverTab() 
-    if strpart(getline('.'), col('.') - 2 , 1) =~ '\w' | return "\<C-P>" | else | return "\<Tab>"
+    if strpart(getline('.'), col('.') - 2, 1) =~ '\w' | return "\<C-P>" | else | return "\<Tab>"
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 
 function! Comment()
-    let d = {'prolog':'%', 'javascript':'//', 'tex':'%','java':'//', 'haskell':'--', 'ruby':'#', 'vim':'"'}
+    let d = {'prolog': '%', 'javascript': '//', 'tex': '%', 'java': '//', 'haskell': '--', 'ruby': '#', 'vim': '"'}
     if has_key(d, &ft) | exe "s@^@".d[&ft]." @ | s@^".d[&ft]." ".d[&ft]." @@e" | endif
 endfunction
 noremap <silent> <Leader>c :call Comment()<CR>
